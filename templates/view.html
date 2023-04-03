@@ -1,0 +1,51 @@
+{% extends 'mains.html' %}
+
+{% block bd %}
+
+
+<head>
+    <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+    </head>
+
+
+<table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Password</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for naam in user %}
+      <tr>
+        <th>{{loop.index}}</th>
+        <td>{{naam.name}}</td>
+        <td>{{naam.Email}}</td>
+        <td>{{naam.Password}}</td>
+        <td><a href="/delete/{{naam.sno}}"><button class="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">Delete</button></a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+<h1><a href="/b">Admin Logout</a></h1>
+
+{% endblock %}
